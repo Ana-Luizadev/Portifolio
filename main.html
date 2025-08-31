@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Luiza Ribeiro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #dbdbdb;
+      color: #5a1d3c;
+    }
+
+    header {
+      background-color: #a64d6c;
+      color: #dbdbdb;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+      border-bottom: 4px solid #a64d6c;
+    }
+
+    .description {
+      position: absolute;
+      bottom: 0;
+      background: rgba(166, 77, 108, 0.9);
+      color: #dbdbdb;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .control {
+      background: rgba(0,0,0,0.5);
+      color: #dbdbdb;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 50%;
+    }
+
+    .control:hover {
+      background: #a64d6c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ana Luiza Ribeiro</h1>
+    <p>Designer & Front-End Developer</p>
+  </header>
+
+  <section class="carousel">
+    <div class="slides" id="slides">
+      <div class="slide">
+        <img src="foto (2).png" alt="Projeto 1">
+        <div class="description">Descrição do Projeto 1: Arte para redes sociais, destacando criatividade e impacto visual.</div>
+      </div>
+      <div class="slide">
+        <img src="PH Student Org Instagram Post in Purple Orange Illustrative Gradient Style.png" alt="Projeto 2">
+        <div class="description">Descrição do Projeto 2: Desenvolvimento de website responsivo com foco em usabilidade.</div>
+      </div>
+      <div class="slide">
+        <img src="foto (1).png" alt="Projeto 3">
+        <div class="description">Descrição do Projeto 3: Identidade visual criada para evento universitário.</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="control" onclick="prevSlide()">❮</button>
+      <button class="control" onclick="nextSlide()">❯</button>
+    </div>
+  </section>
+
+  <script>
+    let index = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    function showSlide() {
+      slides.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % totalSlides;
+      showSlide();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + totalSlides) % totalSlides;
+      showSlide();
+    }
+  </script>
+</body>
+</html>
